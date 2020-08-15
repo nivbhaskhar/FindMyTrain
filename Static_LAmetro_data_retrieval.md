@@ -1957,7 +1957,7 @@ plt.legend();
 ![png](Static_LAmetro_data_retrieval_files/Static_LAmetro_data_retrieval_25_0.png)
 
 
-# Picking the retrieved data
+# Pickling the retrieved data
                   
 
 
