@@ -7,35 +7,31 @@
     <style type="text/css">
       #canvas-container {
 	  width: 100%;
-	  text-align:center;
+	  align:center;
+	  margin:auto;
       }
        canvas { /*border: 1px solid black;*/
-		display: inline;
+	   display: inline;
+	   
 	      }
 
-       .display_info {
-	   /*border: 2px solid black;
-	   background-color: black;
-	   color: white;*/
-
-	   
+        
        }
     </style>
   </head>
   <body>
 
 
-         <div class="display_info" style="position: fixed; top:0; left:0; z-index: 2"> Stop : <span class="display_info" id="stop_details"> </span><br>
+         <div  style="position: fixed; width: 100%; background-color: black; color: white; top:0; left:0; z-index: 2"> Stop : <span class="display_info" id="stop_details"> </span><br>
 	   Engine: <span class="display_info"  id="engine_details"> </span> </div>
 	 
     <div id="canvas-container" style="position: relative;">
- 
+
 
       <canvas id="trains_tracks" width="1200" height="1400" style="position: absolute; left: 0; top: 0; z-index: 0;">Your browser doesn't support canvas. Otherwise you could have seen the design of the UI for Find My Train</canvas>
       <canvas id="trains" width="1200" height="1400" style="position: absolute; left: 0; top: 0; z-index: 1;">Your browser doesn't support canvas. Otherwise you could have seen the design of the UI for Find My Train</canvas>
     </div>
-    
-    
+
 
 
     <script src="with_fabric_events.js"></script>

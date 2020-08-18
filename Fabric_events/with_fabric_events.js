@@ -59,10 +59,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     //Draw arbit engines    
     for (let i=0 ; i < route_numbers.length ; i++){
-	let left_engine = engine_icon(50+30*1 + (2*i)*100-10,100+3*(dist_bet_stops),`left-engine-${i}`);
+	let left_engine = engine_icon(50+30*1 + (2*i)*100-10,110+3*(dist_bet_stops),`left-engine-${i}`);
 	console.log(left_engine.name);
 
-	let right_engine = engine_icon(50+30*(-1) + (2*i+1)*100-10,100+4*(dist_bet_stops),`right-engine-${i}`);
+	let right_engine = engine_icon(50+30*(-1) + (2*i+1)*100-10,110+4*(dist_bet_stops),`right-engine-${i}`);
 	canvas.add(left_engine);
 	canvas.add(right_engine);
 	left_engine.on('mouseup', function()
@@ -97,7 +97,7 @@ function train_stop(train_index,dir_index,stop_index,rad){
 	radius:rad,
 	fill: 'rgba(0,0,0,0)',
 	left: 39.5+((2*train_index)+dir_index)*100,
-	top:89.5+(stop_index*dist_bet_stops),
+	top:99.5+(stop_index*dist_bet_stops),
 	hasControls : false,
 	hasBorders : false,
 	selectable : false,
@@ -235,9 +235,9 @@ function engine_icon(x,y,engine_name)
 	    
 	    //Name start stops
 	    ctx.font = "20px Arial";
-	    ctx.fillText(start_stops[i][1], 47 + (2*i)*100 +15,40);
+	    ctx.fillText(start_stops[i][1], 47 + (2*i)*100 +15,50);
 	    if (start_stops[i][0]==2){
-		ctx.fillText(start_stops[i][2], 47 + (2*i)*100 +15,60);}
+		ctx.fillText(start_stops[i][2], 47 + (2*i)*100 +15,70);}
 
 	    //Draw stations segments
 
@@ -245,8 +245,8 @@ function engine_icon(x,y,engine_name)
 		ctx.beginPath();
 		ctx.lineWidth = 30;
 		ctx.lineCap = 'round';
-		ctx.moveTo(50 + (2*i+j)*100, 100);
-		ctx.lineTo(50 +  (2*i+j)*100, 100+(no_of_stops[i]-1)*(dist_bet_stops));
+		ctx.moveTo(50 + (2*i+j)*100, 110);
+		ctx.lineTo(50 +  (2*i+j)*100, 110+(no_of_stops[i]-1)*(dist_bet_stops));
 		ctx.stroke();
 		ctx.closePath();
 
@@ -257,8 +257,8 @@ function engine_icon(x,y,engine_name)
 		ctx.lineCap = 'butt';
 		if (j==0){var l=1;}
 		else{var l=-1;}
-		ctx.moveTo(50 + 30*(l) + (2*i+j)*100, 100-10);
-		ctx.lineTo(50 + 30*(l)+ (2*i+j)*100, 100+(no_of_stops[i]-1)*(dist_bet_stops)+10);
+		ctx.moveTo(50 + 30*(l) + (2*i+j)*100, 110-10);
+		ctx.lineTo(50 + 30*(l)+ (2*i+j)*100, 110+(no_of_stops[i]-1)*(dist_bet_stops)+10);
 		ctx.stroke();
 		ctx.closePath();
 		   
@@ -268,7 +268,7 @@ function engine_icon(x,y,engine_name)
 		    ctx.beginPath();
 		    ctx.lineWidth = 10;
 		    ctx.fillStyle='white';
-		    ctx.arc(50+  (2*i+j)*100, 100 + k*dist_bet_stops, 10, 0, Math.PI * 2, true);
+		    ctx.arc(50+  (2*i+j)*100, 110 + k*dist_bet_stops, 10, 0, Math.PI * 2, true);
 		    
 		    ctx.fill();
 		   
@@ -278,13 +278,13 @@ function engine_icon(x,y,engine_name)
 	        //Draw direction arrows	
 		if (l==1){
 
-		    arrowhead(ctx, 50 + (2*i+j)*100, 100+(no_of_stops[i]-1)*(dist_bet_stops)+5,-8,6,route_colors[i]);
+		    arrowhead(ctx, 50 + (2*i+j)*100, 110+(no_of_stops[i]-1)*(dist_bet_stops)+5,-8,6,route_colors[i]);
 		
-		    arrowhead(ctx, 50 + (2*i+j)*100, 100+5,-8,6,route_colors[i]);
+		    arrowhead(ctx, 50 + (2*i+j)*100, 110+5,-8,6,route_colors[i]);
 		}
 		else{
-		    arrowhead(ctx, 50 + (2*i+j)*100,100+(no_of_stops[i]-1)*(dist_bet_stops)-5,8,6,route_colors[i]);
-		    arrowhead(ctx, 50 + (2*i+j)*100,100-5,8,6,route_colors[i]);
+		    arrowhead(ctx, 50 + (2*i+j)*100,110+(no_of_stops[i]-1)*(dist_bet_stops)-5,8,6,route_colors[i]);
+		    arrowhead(ctx, 50 + (2*i+j)*100,110-5,8,6,route_colors[i]);
 		}
 	    }
 
@@ -295,8 +295,8 @@ function engine_icon(x,y,engine_name)
 	    ctx.fillStyle=route_colors[i];
 	    ctx.font = "20px Arial";
 	    if (end_stops[i][0]==2){
-		    ctx.fillText(end_stops[i][1], 47 + (2*i)*100 +15,130+(no_of_stops[i]-1)*(dist_bet_stops)+20);}
-	    ctx.fillText(end_stops[i][2], 47 + (2*i)*100 +15,150+(no_of_stops[i]-1)*(dist_bet_stops)+20);
+		    ctx.fillText(end_stops[i][1], 47 + (2*i)*100 +15,140+(no_of_stops[i]-1)*(dist_bet_stops)+20);}
+	    ctx.fillText(end_stops[i][2], 47 + (2*i)*100 +15,160+(no_of_stops[i]-1)*(dist_bet_stops)+20);
 
 	}
 
