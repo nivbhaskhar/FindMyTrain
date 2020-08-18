@@ -15,3 +15,8 @@ _A visual JavaScript wrapper for the LA-metro API: In Progress_
 
 * A static canvas : [Screenshot](UI_design/UI_design_screenshot.png), [HTML](UI_design/UI_design.html), [JS](UI_design/UI_design.js)
 
+## Interactive Canvas
+
+* Using Fabric : [HTML](Fabric_events/with_fabric_events.html), [JS](Fabric_events/with_fabric_events.js)
+
+
