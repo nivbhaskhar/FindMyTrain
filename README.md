@@ -1,5 +1,5 @@
 # FindMyTrain
-_A visual JavaScript wrapper for the LA-metro API: In Progress_
+_A JavaScript visualization of the LA-metro: In Progress_
 
 
 
