@@ -3,22 +3,20 @@ const route_numbers = [801, 802, 803, 804, 805, 806];
 const route_names = ['A', 'B', 'C', 'L', 'D', 'E'];
 const no_of_stops = [21,14,14,27,8,19]
 const dist_bet_stops = 800/20;
-const start_stops = [[2,'    7th/','  Metro'], [2,'   North','Hollywood'], [1,'Redondo', ''],
+const start_stops = [[2,'   Long','  Beach'], [2,'   North','Hollywood'], [1,'Redondo', ''],
 		     [1,' Atlantic', ''], [2,'Wilshire/','Western'], [2,'  Santa',' Monica']];
-const end_stops = [[2,'   Long','  Beach'], [1,'','  Union'], [1,'',' Norwalk'],
-		   [2,'   Apu/','  Citrus'], [1,'','  Union'], [2,'    7th/', '  Metro']];
+const end_stops = [[2,'    7th/','  Metro'], [1,'','  Union'], [1,'',' Norwalk'],
+		   [2,'   APU/','  Citrus'], [1,'','  Union'], [2,'    7th/', '  Metro']];
 
 
-const stops = [['7th/Metro Center', 'Pico', 'Grand/Lattc', 'San Pedro', 'Washington', 'Vernon', 'Slauson', 'Florence', 'Firestone', '103rd/Watts Towers', 'Rosa Parks', 'Compton', 'Artesia', 'Del Amo', 'Wardlow', 'Willow', 'Pacific Coast Hwy', 'Anaheim', '5th', '1st', 'Downtown Long Beach'],
+const stops = [['Downtown Long Beach', '1st', '5th', 'Anaheim', 'Pacific Coast Hwy', 'Willow', 'Wardlow', 'Del Amo', 'Artesia', 'Compton', 'Rosa Parks', '103rd/Watts Towers', 'Firestone', 'Florence', 'Slauson', 'Vernon', 'Washington', 'San Pedro', 'Grand/Lattc', 'Pico', '7th/Metro Center'],
 	       ['N. Hollywood', 'Universal/Studio City', 'Hollywood/Highland', 'Hollywood/Vine', 'Hollywood/Western', 'Vermont/Sunset', 'Vermont/Santa Monica', 'Vermont/Beverly', 'Wilshire/Vermont', 'Westlake/Macarthur Park', '7th/Metro Center', 'Pershing Sq', 'Civic Center/Grand Park', 'Union'],
 	       ['Redondo', 'Douglas', 'El Segundo', 'Mariposa', 'Aviation/LAX', 'Hawthorne/Lennox', 'Crenshaw', 'Vermont/Athens', 'Harbor Freeway', 'Avalon', 'Rosa Parks', 'Long Beach Blvd', 'Lakewood Blvd', 'Norwalk'],
-	       ['Atlantic', 'East La Civic Center', 'Maravilla', 'Indiana', 'Soto', 'Mariachi Plaza/Boyle Hts', 'Pico / Aliso', 'Little Tokyo/Arts District', 'Union', 'Chinatown', 'Lincoln Hts/Cypress Park', 'Heritage Sq/Arroyo', 'Southwest Museum', 'Highland Park', 'South Pasadena', 'Fillmore', 'Del Mar', 'Memorial Park', 'Lake', 'Allen', 'Sierra Madre Villa', 'Arcadia', 'Monrovia', 'Duarte/City Of Hope', 'Irwindale', 'Azusa Downtown', 'Apu/Citrus'],
+	       ['Atlantic', 'East La Civic Center', 'Maravilla', 'Indiana', 'Soto', 'Mariachi Plaza/Boyle Hts', 'Pico / Aliso', 'Little Tokyo/Arts District', 'Union', 'Chinatown', 'Lincoln Hts/Cypress Park', 'Heritage Sq/Arroyo', 'Southwest Museum', 'Highland Park', 'South Pasadena', 'Fillmore', 'Del Mar', 'Memorial Park', 'Lake', 'Allen', 'Sierra Madre Villa', 'Arcadia', 'Monrovia', 'Duarte/City Of Hope', 'Irwindale', 'Azusa Downtown', 'APU/Citrus'],
 	       ['Wilshire/Western', 'Wilshire/Normandie', 'Wilshire/Vermont', 'Westlake/Macarthur Park', '7th/Metro', 'Pershing Sq', 'Civic Center/Grand Park', 'Union'],
 	       ['Santa Monica', '17th/SMC', '26th/Bergamot', 'Expo/Bundy', 'Expo/Sepulveda', 'Westwood/Rancho Park', 'Palms', 'Culver City', 'La Cienega/Jefferson', 'Expo/ La Brea/Ethel Bradley', 'Farmdale', 'Expo/Crenshaw', 'Expo/Western', 'Expo/Vermont', 'Expo Park/USC', 'Jefferson/USC', 'Lattc/Ortho', 'Pico', '7th/Metro']
 	      ]
 
-const dir_1 = 0;
-const dir_0 = 1;
 
 	
 

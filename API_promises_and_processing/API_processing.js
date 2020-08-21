@@ -1,28 +1,51 @@
-import {no_of_stops,stop_coordinates, stop_distances, route_index, dir, dist_bet_stops} from  '/constants.js';
+import {no_of_stops,stop_coordinates, stop_distances, route_index, dir} from  '/constants.js';
 
-import {engine_icon} from '/static_train_tracks.js';
+document.addEventListener('DOMContentLoaded', function() {
+
+    document.querySelector('#current_trains_api').onclick = current_trains_api_part.bind(this, "dummy");
+    document.querySelector('#test_output_box').innerHTML = "Output data goes here";
+    
 
 
+});
 
+function current_trains_api_part(canvas){
 
-function plot_current_trains(canvas, plot_data){
-    //console.log(JSON.stringify(plot_data));
-    for (let vehicle_no = 0; vehicle_no < plot_data.length; vehicle_no ++){
-	let vehicle=plot_data[vehicle_no];
-	if (vehicle.dir ==1){
-	    var l=-1;
-	}
-	else{
-	    var l=1;
-	}
-	let engine=engine_icon(50+30*l + (2*vehicle.route_index+vehicle.dir)*100-10, 110+((vehicle.nearest_stop+vehicle.d)*(dist_bet_stops)-12.5), `Vehicle # ${vehicle.vehicle_id}`);
-	canvas.add(engine);
-	engine.on('mouseup', function()
-		       {
-			   document.querySelector('#engine_details').innerHTML = engine.name;
-		       });
+    
+    fetch('https://api.metro.net/agencies/lametro-rail/vehicles/')
+	.then(
+            //Get data. Catch request errors
+	    function(response){
+		if (!response.ok) {
+		    throw new Error(`HTTP error! status: ${response.status}`);
+		}	
+		else {
+		    return response.json();
+		}
+	    })
+        .then(
+            //Do initial API data processing
+	    function(initial_data){
+		var current_vehicles=[];
+		for (let index = 0; index < initial_data.items.length; index++)
+		{
+		    let vehicle = initial_data.items[index];
+		    if (vehicle.predictable){
+			current_vehicles.push(vehicle);
+		    }
+		}
+		//Catch Error - no vehicles
+		if (initial_data.items.length==0){
+		    throw new Error("No current predictable vehicles");
+		}
+		else{return current_vehicles;}
+	    })
+	.then(process_current_vehicle_data)
+	.catch(e => {
+	    alert('There has been a problem with your fetch operation: ' + e.message);
+	});
+    
 
-    }
 
 }
 
@@ -30,30 +53,27 @@ function plot_current_trains(canvas, plot_data){
 // Element of current_vehicles looks like {"seconds_since_report":9,"predictable":true,"id":"204","longitude":-118.285589,"run_id":"805_1_var0","heading":270,"latitude":34.061904,"route_id":"805"}
 // Want element of plot_data to look like  {'route_index':0/1/2/3/4/5, 'dir':0/1, 'nearest_stop': r, 'd': 0<d<1}
 
-export function process_and_plot_current_vehicle_data(canvas,current_vehicles){
+function process_current_vehicle_data(current_vehicles){
     var plot_data = [];
     for (let vehicle_index = 0;vehicle_index <current_vehicles.length; vehicle_index ++){
 	let vehicle=current_vehicles[vehicle_index];
 	let adj_station_details = find_adjacent_stations([vehicle.latitude, vehicle.longitude],route_index[vehicle.route_id]);
 
 	if (adj_station_details[0]!=null){
-	    if ("run_id" in vehicle){ 
-		let vehicle_plot_data = {'vehicle_id': vehicle.id,
-					 'route_index': route_index[vehicle.route_id],
-					 'dir': dir[vehicle.run_id[4]],
-					 'nearest_stop': adj_station_details[0],
-					 'd': adj_station_details[1]/stop_distances[route_index[vehicle.route_id]][adj_station_details[0]]
-					};
-		plot_data.push(vehicle_plot_data);
-	    }
+	    
+	    let vehicle_plot_data = { 'route_index': route_index[vehicle.route_id],
+				  'dir': dir[vehicle.run_id[4]],
+				  'nearest_stop': adj_station_details[0],
+				  'd': adj_station_details[1]/stop_distances[route_index[vehicle.route_id]][adj_station_details[0]]
+				    };
+	    plot_data.push(vehicle_plot_data);
 	}
 	
     }
 
+document.querySelector('#test_output_box').innerHTML = JSON.stringify(plot_data);
+return plot_data;
 
-//Draw trains from plot-data
-    plot_current_trains(canvas, plot_data);
-    
 }
 
 
@@ -62,6 +82,7 @@ export function process_and_plot_current_vehicle_data(canvas,current_vehicles){
 function find_adjacent_stations(point,route_index){
     var orthogonal_dist=Math.pow(10, 1000);
     var d=null;
+    var not_in_betweens = [];
     var prev_adj_station = null;
     for (var pos=0; pos < no_of_stops[route_index]-1; pos ++){
 	let start_station = stop_coordinates[route_index][pos];
@@ -76,17 +97,17 @@ function find_adjacent_stations(point,route_index){
 		prev_adj_station = pos;
 	    }    	    
 	}
-
+	else{not_in_betweens.push(pos);	}
     }
     if (prev_adj_station==null){
 	d=Math.pow(10,1000);
-	for(var i=0; i<no_of_stops[route_index]-1;i++){
-	    let temp_station_x = stop_coordinates[route_index][i][0];
-	    let temp_station_y = stop_coordinates[route_index][i][1];
+	for(var i=0; i<not_in_betweens.length;i++){
+	    let temp_station_x = stop_coordinates[route_index][not_in_betweens[i]][0];
+	    let temp_station_y = stop_coordinates[route_index][not_in_betweens[i]][1];
 	    let distance = Math.sqrt(Math.pow(temp_station_x-point[0],2) + Math.pow(temp_station_y-point[1],2));
 	    if (distance < d){
-		d = distance;
-		prev_adj_station = i;
+		d = distance
+		prev_adj_station = not_in_betweens[i];
 	    }
 	} 
     }

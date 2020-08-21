@@ -30,8 +30,8 @@ function engine_icon(ctx, x,y)
 	var route_names = ['A', 'B', 'C', 'L', 'D', 'E'];
 	var no_of_stops = [21,14,14,27,8,19]
 	var dist_bet_stops = 800/20;
-	var start_stops = [[2,'    7th/','  Metro'], [2,'   North','Hollywood'], [1,'Redondo', ''], [1,' Atlantic', ''], [2,'Wilshire/','Western'], [2,'  Santa',' Monica']];
-	var end_stops = [[2,'   Long','  Beach'], [1,'','  Union'], [1,'',' Norwalk'], [2,'   Apu/','  Citrus'], [1,'','  Union'], [2,'    7th/', '  Metro']];
+	var start_stops = [[2,'   Long','  Beach'], [2,'   North','Hollywood'], [1,'Redondo', ''], [1,' Atlantic', ''], [2,'Wilshire/','Western'], [2,'  Santa',' Monica']];
+	var end_stops = [[2,'    7th/','  Metro'], [1,'','  Union'], [1,'',' Norwalk'], [2,'   APU/','  Citrus'], [1,'','  Union'], [2,'    7th/', '  Metro']];
 
 	
 	for (var i=0 ; i < route_numbers.length; i++){
