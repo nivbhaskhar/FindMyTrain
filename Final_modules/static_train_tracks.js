@@ -1,6 +1,10 @@
 import {route_colors,route_numbers,route_names,start_stops,end_stops,no_of_stops} from  '/constants.js';
 
 export function draw_train_tracks(ctx, dist_bet_stops) {
+
+
+    //ctx.fillStyle = "#f2f2f2";
+    //ctx.fillRect(0, 0, 1200, 1400);
 	
 
 	

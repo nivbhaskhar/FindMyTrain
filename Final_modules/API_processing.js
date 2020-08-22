@@ -1,4 +1,4 @@
-import {no_of_stops,stop_coordinates, stop_distances, route_index, dir, dist_bet_stops} from  '/constants.js';
+import {no_of_stops,stop_coordinates, stop_distances, route_index, dir, dist_bet_stops, stops} from  '/constants.js';
 
 import {engine_icon} from '/static_train_tracks.js';
 
@@ -15,11 +15,18 @@ function plot_current_trains(canvas, plot_data){
 	else{
 	    var l=1;
 	}
-	let engine=engine_icon(50+30*l + (2*vehicle.route_index+vehicle.dir)*100-10, 110+((vehicle.nearest_stop+vehicle.d)*(dist_bet_stops)-12.5), `Vehicle # ${vehicle.vehicle_id}`);
+	let engine=engine_icon(50+30*l + (2*vehicle.route_index+vehicle.dir)*100-10, 110+((vehicle.nearest_stop+vehicle.d)*(dist_bet_stops)-12.5), `#${vehicle.vehicle_id}`);
 	canvas.add(engine);
 	engine.on('mouseup', function()
 		       {
-			   document.querySelector('#engine_details').innerHTML = engine.name;
+			   document.querySelector('#vehicle_id').innerHTML = engine.name;
+			   if (vehicle.dir==0){
+			       var approaching_stop = stops[vehicle.route_index][vehicle.nearest_stop+1];
+			   }
+			   else{
+			       var approaching_stop = stops[vehicle.route_index][vehicle.nearest_stop];
+			   }
+			   document.querySelector('#vehicle_approaching').innerHTML = approaching_stop;
 		       });
 
     }

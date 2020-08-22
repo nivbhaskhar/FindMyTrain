@@ -1,5 +1,5 @@
 # FindMyTrain
-_A JavaScript visualization of the LA-metro: In Progress_
+_A JavaScript visualization of the LA-Metro: In Progress_
 
 
 
