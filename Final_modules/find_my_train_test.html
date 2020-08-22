@@ -2,41 +2,61 @@
 <html>
   <head>
     <style type="text/css">
+      body {
+	  margin: 0px;
+      }
       .canvas-container {
 	  margin:auto;
+      }
+      canvas { /*border: 1px solid black;*/
+	  /*text-align:center;*/}
 
+      .navbar {
+	  overflow: hidden;
+	  background-color: #333;
+	  color: #f2f2f2;
+	  position: fixed;
+	  top: 0;
+	  width: 100%;
+	  height: 50px;
+	  z-index:2;
+      }
+
+      .navbar span {
+	  display: inline-block;
+	  color: #f2f2f2;
+	  text-align: center;
+	  padding: 14px 16px;
+	  text-decoration: none;
+	  font-size: 17px;
       }
 
 
-      canvas { /*border: 1px solid black;*/
-	       /*text-align:center;*/}
-
-        
-       }
     </style>
     <meta charset="utf-8"/>
     <script src="lib/fabric.js"></script>
     
   <script type="module" src="constants.js"></script>
-    <script type="module" src="static_train_tracks.js"></script>
-    <script type="module" src="API_processing.js"></script>
-    <script type="module" src="adding_events.js"></script>
+  <script type="module" src="static_train_tracks.js"></script>
+  <script type="module" src="API_processing.js"></script>
+  <script type="module" src="adding_events.js"></script>
     
     <title>Find my train</title>
     
   </head>
   <body>
 
-
-         <div  style="position: fixed; width: 100%; background-color: black; color: white; top:0; left:0; z-index: 2"> Stop : <span class="display_info" id="stop_details"> </span><br>
-	   Vehicle: <span class="display_info"  id="vehicle_id"> </span>
-	   Approaching: <span class="display_info"  id="vehicle_approaching"> </span>
-	   <span><button id="current_trains_cumulative" style="float:right"> Find trains </button>
+    <div class="navbar">
+           Stop: <span  id="stop_details"> </span>
+	   Train:<span id="vehicle"> </span>
+	   <span><button id="current_trains_cumulative">Find trains</button>
 	   </span>
+
+      </div>
+
+       
 	 
-	 </div>
-	 
-<div style="position: relative;">
+<div style="position: relative; padding-top: 16px; margin-top: 30px;">
 <div style="position: relative; margin: auto; height=1400px;width: 1200px;">
 	 <canvas id="trains_tracks" width="1200" height="1400" style="position: absolute;z-index: 0;">Your browser doesn't support canvas. Otherwise you could have seen the design of the UI for Find My Train</canvas>
 	 </div>

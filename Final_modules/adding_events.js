@@ -52,8 +52,7 @@ function clear_old_trains(canvas){
 function current_trains_cumulative(canvas){
 
     //Clear display-info
-    document.querySelector('#vehicle_id').innerHTML = "";
-    document.querySelector('#vehicle_approaching').innerHTML = "";
+    document.querySelector('#vehicle').innerHTML = "";
 
     //Clear old trains
     clear_old_trains(canvas);

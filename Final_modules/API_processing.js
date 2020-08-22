@@ -19,14 +19,13 @@ function plot_current_trains(canvas, plot_data){
 	canvas.add(engine);
 	engine.on('mouseup', function()
 		       {
-			   document.querySelector('#vehicle_id').innerHTML = engine.name;
 			   if (vehicle.dir==0){
 			       var approaching_stop = stops[vehicle.route_index][vehicle.nearest_stop+1];
 			   }
 			   else{
 			       var approaching_stop = stops[vehicle.route_index][vehicle.nearest_stop];
 			   }
-			   document.querySelector('#vehicle_approaching').innerHTML = approaching_stop;
+			   document.querySelector('#vehicle').innerHTML = `${engine.name} approaching ${approaching_stop}`;
 		       });
 
     }
