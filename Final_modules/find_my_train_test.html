@@ -8,16 +8,17 @@
       .canvas-container {
 	  margin:auto;
       }
-      canvas { /*border: 1px solid black;*/
-	  /*text-align:center;*/}
+
 
       .navbar {
 	  overflow: hidden;
 	  color: #f2f2f2;
 	  position: fixed;
-	  top: 0;
+	  bottom: 0;
 	  width: 100%;
 	  z-index:2;
+	  margin: 0px;
+	  background-color: black;
       }
       @media (min-width: 600px) {
 	  .navbar {
@@ -27,8 +28,11 @@
       }
 
       .navtext {
-	  color: black;
-	  padding: 8px;
+	  color: #f2f2f2;
+	  padding-left: 8px;
+	  padding-right: 8px;
+	  margin-top:8px;
+	  margin-bottom:8px;
 	  text-decoration: none;
 	  font-size: 17px;
 	  display: grid;
@@ -36,13 +40,17 @@
 
       }
       #navleft {
-	  background-color: #f2f2f2;
+	  background-color: black;
       }
       #navright {
-	  background-color: #f2f2f2;
+	  background-color: black;
       }
       #navbutton {
-	  background-color: #f2f2f2;
+	  margin-top: 8px;
+	  margin-bottom: 8px;
+	  padding-left: 8px;
+	  padding-right:8px;
+	  background-color: black;
       }
       #current_trains_cumulative {
 	  font-size: 17px;
@@ -72,7 +80,7 @@
       <div id="navleft">
         <div class="navtext">
 	  <div>Stop:&nbsp;</div>
-	  <div id="stop_details">Some really long text for testing purposes</div>
+	  <div id="stop_details"></div>
 	</div>
       </div>
       <div id="navright">
@@ -88,7 +96,7 @@
 
        
 	 
-<div style="position: relative; padding-top: 16px; margin-top: 30px;">
+<div style="position: relative; padding-top: 16px;">
 <div style="position: relative; margin: auto; height=1400px;width: 1200px;">
 	 <canvas id="trains_tracks" width="1200" height="1400" style="position: absolute;z-index: 0;">Your browser doesn't support canvas. Otherwise you could have seen the design of the UI for Find My Train</canvas>
 	 </div>
