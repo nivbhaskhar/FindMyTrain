@@ -13,44 +13,22 @@
 
       .navbar {
 	  overflow: hidden;
+	  background-color: #333;
 	  color: #f2f2f2;
 	  position: fixed;
 	  top: 0;
 	  width: 100%;
+	  height: 50px;
 	  z-index:2;
       }
-      @media (min-width: 600px) {
-	  .navbar {
-	      display: grid;
-	      grid-template-columns: 1fr 1fr 0.01fr;
-	  }
-      }
 
-      .navtext {
-	  color: black;
-	  padding: 8px;
+      .navbar span {
+	  display: inline-block;
+	  color: #f2f2f2;
+	  text-align: center;
+	  padding: 14px 16px;
 	  text-decoration: none;
 	  font-size: 17px;
-	  display: grid;
-	  grid-template-columns: 0.1fr 1fr;
-
-      }
-      #navleft {
-	  background-color: #f2f2f2;
-      }
-      #navright {
-	  background-color: #f2f2f2;
-      }
-      #navbutton {
-	  background-color: #f2f2f2;
-      }
-      #current_trains_cumulative {
-	  font-size: 17px;
-	  border: 1px;
-	  background: #bbb;
-	  color: black;
-	  box-shadow: none;
-	  border-radius: 4px;
       }
 
 
@@ -69,22 +47,12 @@
   <body>
 
     <div class="navbar">
-      <div id="navleft">
-        <div class="navtext">
-	  <div>Stop:&nbsp;</div>
-	  <div id="stop_details">Some really long text for testing purposes</div>
-	</div>
+           Stop: <span  id="stop_details"> </span>
+	   Train:<span id="vehicle"> </span>
+	   <span><button id="current_trains_cumulative">Find trains</button>
+	   </span>
+
       </div>
-      <div id="navright">
-	<div class="navtext">
-	  <div>Train:&nbsp;</div>
-	  <div id="vehicle"></div>
-	</div>
-      </div>
-      <div id="navbutton">
-	<span><button id="current_trains_cumulative">Find trains</button></span>
-      </div>
-    </div>
 
        
 	 
