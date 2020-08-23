@@ -9,6 +9,31 @@
 	  margin:auto;
       }
 
+      
+ 
+      .headerbar {
+	  overflow: hidden;
+	  background-color: #f2f2f2;
+	  color: black;
+	  top: 0;
+	  width: 100%;
+	  padding: 8px;
+	  margin: 0px;
+	  min-height: 45px;
+	  z-index:2;
+	
+      }
+
+      .headertext{
+	  /*margin: 8px;
+	  padding-bottom: 8px;*/
+	  font-size: 20px;
+	  text-decoration: none;
+	  text-align: center;
+	  font-family: palatino, sans-serif;
+      }
+
+       
 
       .navbar {
 	  overflow: hidden;
@@ -16,7 +41,7 @@
 	  position: fixed;
 	  bottom: 0;
 	  width: 100%;
-	  z-index:2;
+	  z-index:3;
 	  margin: 0px;
 	  background-color: black;
       }
@@ -25,7 +50,13 @@
 	      display: grid;
 	      grid-template-columns: 1fr 1fr 0.01fr;
 	  }
+
+
       }
+
+
+
+      
 
       .navtext {
 	  color: #f2f2f2;
@@ -55,7 +86,7 @@
       #current_trains_cumulative {
 	  font-size: 17px;
 	  border: 1px;
-	  background: #bbb;
+	  background: #f2f2f2;
 	  color: black;
 	  box-shadow: none;
 	  border-radius: 4px;
@@ -75,6 +106,10 @@
     
   </head>
   <body>
+
+    <div class="headerbar"> <div class="headertext">FIND MY TRAIN </div> <div style="text-align: center"> A visualization of the LA Metro by <a class="website-link" href="https://nivbhaskhar.github.io">Nivedita Bhaskhar</a></div></div>
+      </div>
+
 
     <div class="navbar">
       <div id="navleft">
@@ -96,7 +131,7 @@
 
        
 	 
-<div style="position: relative; padding-top: 16px;">
+<div style="position: relative; margin-top: 8px; padding-top: 8px;">
 <div style="position: relative; margin: auto; height=1400px;width: 1200px;">
 	 <canvas id="trains_tracks" width="1200" height="1400" style="position: absolute;z-index: 0;">Your browser doesn't support canvas. Otherwise you could have seen the design of the UI for Find My Train</canvas>
 	 </div>
