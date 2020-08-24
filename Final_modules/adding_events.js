@@ -1,13 +1,31 @@
-import {route_colors,route_numbers,route_names,no_of_stops,dist_bet_stops,start_stops,end_stops, stops} from  '/constants.js';
+import {route_colors,route_numbers,route_names,no_of_stops,dist_bet_stops,start_stops,end_stops, stops} from  '/assets/js/Find_my_train_modules/constants.js';
 
 
-import {draw_train_tracks,engine_icon,train_stop} from '/static_train_tracks.js';
+import {draw_train_tracks,engine_icon,train_stop} from '/assets/js/Find_my_train_modules/static_train_tracks.js';
 
-import {process_and_plot_current_vehicle_data} from '/API_processing.js';
+import {process_and_plot_current_vehicle_data} from '/assets/js/Find_my_train_modules/API_processing.js';
 
-	
+function add_scroll_bars(){
+    	var h1= document.getElementById("headerbar_id").offsetHeight;
+	var w1 =  document.getElementById("headerbar_id").offsetWidth;
+	var h2= document.getElementById("navbar_id").offsetHeight;
+	var w2 =  document.getElementById("navbar_id").offsetWidth;
+	var w = window.innerWidth;
+	var h = window.innerHeight;
+	document.getElementById("scrollcontainer_id").style.height = `${(h-h1-h2-5)}px`;
+	document.getElementById("scrollcontainer_id").style.width = `${(w-w1-w2-5)}px`;
+    
+    
+}
 
 document.addEventListener('DOMContentLoaded', function() {
+
+    
+    
+    window.addEventListener("touchstart", add_scroll_bars);
+     window.addEventListener("touchend", add_scroll_bars);
+
+
     //draw static train-tracks
     var ctx = document.getElementById('trains_tracks').getContext('2d');
     draw_train_tracks(ctx,dist_bet_stops);
@@ -84,13 +102,13 @@ function current_trains_cumulative(canvas){
 		}
 		//Catch Error - no vehicles
 		if (initial_data.items.length==0){
-		    throw new Error("No current predictable vehicles");
+		    throw new Error("API down. No current predictable vehicles");
 		}
 		else{return current_vehicles;}
 	    })
 	.then(process_and_plot_current_vehicle_data.bind(null,canvas))
 	.catch(e => {
-	    alert('There has been a problem with your fetch operation: ' + e.message);
+	    alert('Error! Try again shortly. Details:' + e.message);
 	});
     
 }
