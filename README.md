@@ -54,6 +54,6 @@ _The following notebooks contain code and more precise notes for each step of th
 ## A web-application
 [https://nivbhaskhar.github.io/find_my_train.html](https://nivbhaskhar.github.io/find_my_train.html)
 
-**TO DO: Sadly, the LA metro API has changed recently, and the app needs to be updated.**
+*TO DO: Sadly, the LA metro API has changed recently, and the app needs to be updated.*
 
 
