@@ -5,10 +5,6 @@ _A JavaScript visualization of the LA-Metro Rail_
 ![FindMyTrain](train2.png)
 
 
-## A web-application
-[https://nivbhaskhar.github.io/find_my_train.html](https://nivbhaskhar.github.io/find_my_train.html)
-
-
 ## An overview
 
 This project's goal is to give a clean visual representation of the LA Metro Rail's current vehicular data. I carry out an initial exploration of the LA-Metro REST API in Python to understand the track layout. Further, I construct a simple projection function to locate the nearest stations of trains using their coordinates. 
@@ -55,5 +51,9 @@ _The following notebooks contain code and more precise notes for each step of th
 
 
 
+## A web-application
+[https://nivbhaskhar.github.io/find_my_train.html](https://nivbhaskhar.github.io/find_my_train.html)
+
+**TO DO: Sadly, the LA metro API has changed recently, and the app needs to be updated.**
 
 
